@@ -1,0 +1,13 @@
+# for creation purposes 
+- hosts: all
+  become: yes
+  tasks:
+    - name: creation of multiple
+      file:
+        path: "/home/ec2-user/{{item}}"
+        state: touch
+      with_items:
+      - dileep.txt
+      - dileep23.txt
+    - name: installation of git maven java python
+      action: yum name=git,maven,java,python state=present
